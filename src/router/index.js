@@ -10,8 +10,7 @@ const routes = [
     path: '/',
     name: 'Login',
     meta: { hideNavigation: true },
-    component: () => import('../components/Login/Login.vue'),
-    home: false
+    component: () => import('../components/Login/Login.vue')
   },
   {
     path: '/about',
@@ -20,12 +19,6 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    meta: { hideNavigation: true },
-    component: () => import('../components/Login/Login.vue')
   },
   {
     path: '/register',
@@ -44,7 +37,7 @@ const routes = [
   {
     path: '/user',
     name: 'Listuser',
-    component: () => import('../components/Datatable/Listuser.vue'),
+    component: () => import('../Master/User/Listuser.vue'),
     meta: {
       auth: true
     }
@@ -52,7 +45,7 @@ const routes = [
   {
     path: '/createuser/:id',
     name: 'Create',
-    component: () => import('../components/Create/Create.vue'),
+    component: () => import('../Master/User/Create.vue'),
     meta: {
       auth: true
     }
@@ -60,7 +53,7 @@ const routes = [
   {
     path: '/update/:id',
     name: 'Update',
-    component: () => import('../components/Update/Update.vue'),
+    component: () => import('../Master/User/Update.vue'),
     meta: {
       auth: true
     }
@@ -68,7 +61,7 @@ const routes = [
   {
     path: '/createrole',
     name: 'Createrole',
-    component: () => import('../components/Create/CreateRole.vue'),
+    component: () => import('../Master/Role/CreateRole.vue'),
     meta: {
       auth: true
     }
@@ -76,7 +69,7 @@ const routes = [
   {
     path: '/role',
     name: 'Listrole',
-    component: () => import('../components/Datatable/Listrole.vue'),
+    component: () => import('../Master/Role/Listrole.vue'),
     meta: {
       auth: true
     }
@@ -84,7 +77,7 @@ const routes = [
   {
     path: '/updaterole/:id',
     name: 'Updaterole',
-    component: () => import('../components/Update/UpdateRole.vue'),
+    component: () => import('../Master/Role/UpdateRole.vue'),
     meta: {
       auth: true
     }
@@ -92,7 +85,7 @@ const routes = [
   {
     path: '/customers',
     name: 'Listcustomers',
-    component: () => import('../components/Datatable/Listcustomers.vue'),
+    component: () => import('../Master/Customers/Listcustomers.vue'),
     meta: {
       auth: true
     }
@@ -100,7 +93,7 @@ const routes = [
   {
     path: '/createcustomers/:id',
     name: 'Createcustomers',
-    component: () => import('../components/Create/CreateCustomers.vue'),
+    component: () => import('../Master/Customers/CreateCustomers.vue'),
     meta: {
       auth: true
     }
@@ -108,7 +101,7 @@ const routes = [
   {
     path: '/updatecustomers/:id',
     name: 'Updatecustomers',
-    component: () => import('../components/Update/UpdateCustomers.vue'),
+    component: () => import('../Master/Customers/UpdateCustomers.vue'),
     meta: {
       auth: true
     }
@@ -116,7 +109,7 @@ const routes = [
   {
     path: '/menus',
     name: 'Listmenus',
-    component: () => import('../components/Datatable/Listmenus.vue'),
+    component: () => import('../Master/Menu/Listmenus.vue'),
     meta: {
       auth: true
     }
@@ -124,7 +117,7 @@ const routes = [
   {
     path: '/createmenus/:id',
     name: 'Createmenus',
-    component: () => import('../components/Create/CreateMenus.vue'),
+    component: () => import('../Master/Menu/CreateMenus.vue'),
     meta: {
       auth: true
     }
@@ -132,7 +125,7 @@ const routes = [
   {
     path: '/updatemenus/:id',
     name: 'Updatemenus',
-    component: () => import('../components/Update/UpdateMenus.vue'),
+    component: () => import('../Master/Menu/UpdateMenus.vue'),
     meta: {
       auth: true
     }
@@ -140,7 +133,7 @@ const routes = [
   {
     path: '/menudetails',
     name: 'Listmenudetails',
-    component: () => import('../components/Datatable/Listmenudetails.vue'),
+    component: () => import('../Master/MenuDetail/Listmenudetails.vue'),
     meta: {
       auth: true
     }
@@ -148,7 +141,7 @@ const routes = [
   {
     path: '/createmenudetails/:id',
     name: 'Createmenudetails',
-    component: () => import('../components/Create/CreateMenuDetails.vue'),
+    component: () => import('../Master/MenuDetail/CreateMenuDetails.vue'),
     meta: {
       auth: true
     }
@@ -156,7 +149,7 @@ const routes = [
    {
     path: '/updatemenudetails/:id',
     name: 'Updatemenudetails',
-    component: () => import('../components/Update/UpdateMenuDetails.vue'),
+    component: () => import('../Master/MenuDetail/UpdateMenuDetails.vue'),
     meta: {
       auth: true
     }
@@ -174,7 +167,7 @@ router.beforeEach((to, from, next) => {
     if (store.getters.isLoggedIn && store.getters.user) {
       return next()
     }
-    next('/login')
+    next('/')
   }
 
   if (to.matched.some(record => record.meta.guest)) {
@@ -184,7 +177,6 @@ router.beforeEach((to, from, next) => {
     }
     next('/user')
   }
-
   next()
 })
 export default router

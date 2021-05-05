@@ -3,12 +3,12 @@
     <CToggler
       in-header
       class="ml-3 d-lg-none"
-      @click="$tNav.commit('toggleSidebarMobile')"
+      @click="$navbar.commit('toggleSidebarMobile')"
     />
     <CToggler
       in-header
       class="ml-3 d-md-down-none"
-      @click="$tNav.commit('toggleSidebarDesktop')"
+      @click="$navbar.commit('toggleSidebarDesktop')"
     />
     <CHeaderBrand class="mx-auto d-lg-none" to="/">
       <CIcon name="logo" height="48" alt="Logo"/>

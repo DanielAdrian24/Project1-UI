@@ -82,8 +82,6 @@
                             </div>
 
 
-
-
                             <div class="form-group">
                                 <button type="submit" class="btn btn-md btn-success">SIMPAN</button>
                                 <button type="reset" class="btn btn-md btn-danger">RESET</button>

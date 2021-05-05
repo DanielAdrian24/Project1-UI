@@ -1,15 +1,14 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
 Vue.use(Vuex)
 
+const state = {
+  sidebarShow: 'responsive',
+  sidebarMinimize: false
+}
 
-export default new Vuex.Store({
-  state: {
-    sidebarShow: 'responsive',
-    sidebarMinimize: false
-  },
-  mutations: {
-    toggleSidebarDesktop (state) {
+const mutations = {
+  toggleSidebarDesktop (state) {
     const sidebarOpened = [true, 'responsive'].includes(state.sidebarShow)
     state.sidebarShow = sidebarOpened ? false : 'responsive'
   },
@@ -19,6 +18,18 @@ export default new Vuex.Store({
   },
   set (state, [variable, value]) {
     state[variable] = value
-  },
   }
-})
+}
+
+const nav = new Vuex.Store({
+  namespaced: true, // Add this here
+  state,
+  mutations
+});
+
+export default nav;
+
+// export default new Vuex.Store({
+//     namespaced: true,
+  
+// })

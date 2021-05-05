@@ -168,6 +168,7 @@ import axios from 'axios'
             let uri = `http://localhost:8000/api/v1/getupdateidcustomers/${this.$route.params.id}`;
             axios.get(uri).then((response) => {
                 this.customersUpdate = response.data.data;
+                console.log(this.customersUpdate);
             });
         },
         methods: {
