@@ -165,17 +165,10 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => { 
   if (to.matched.some(record => record.meta.auth)) {
     if (store.getters.isLoggedIn && store.getters.user) {
-      return next()
+      next()
+      return
     }
     next('/')
-  }
-
-  if (to.matched.some(record => record.meta.guest)) {
-    if (!store.getters.isLoggedIn) {
-      return next()
-      
-    }
-    next('/user')
   }
   next()
 })
