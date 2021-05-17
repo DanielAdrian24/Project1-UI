@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <label>Menu Detail Name</label>
                                 <input type="text" class="form-control" v-model="menudtlData.menu_detail_name"
-                                       placeholder="Masukkan Customer Number">
+                                       placeholder="Masukkan Menu Detail Name">
                                 <div v-if="validation.menu_detail_name">
                                     <div class="alert alert-danger mt-1" role="alert">
                                         {{ validation.menu_detail_name[0] }}
@@ -44,9 +44,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Menua Detail Desc</label>
+                                <label>Menu Detail Desc</label>
                                 <input class="form-control" type="text" v-model="menudtlData.menu_detail_desc" rows="5"
-                                          placeholder="Masukkan Customer Name">
+                                          placeholder="Masukkan Menu Detail Desc">
                                 <div v-if="validation.menu_detail_desc">
                                     <div class="alert alert-danger mt-1" role="alert">
                                         {{ validation.menu_detail_desc[0] }}
@@ -73,7 +73,7 @@
                             <div class="form-group">
                                 <label>Seq</label>
                                 <input class="form-control" type="number" v-model="menudtlData.seq" rows="5"
-                                          placeholder="Masukkan Description">
+                                          placeholder="Masukkan Seq">
                                 <div v-if="validation.seq">
                                     <div class="alert alert-danger mt-1" role="alert">
                                         {{ validation.seq[0] }}

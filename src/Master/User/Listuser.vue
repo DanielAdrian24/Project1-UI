@@ -1,6 +1,102 @@
 <template>
     <div style="background-color:white; padding:20px; border-radius:5px">
-        <router-link :to="{ name: 'Create', params: { id: user.id } }" class="btn btn-md btn-success">TAMBAH USER</router-link>
+        <!-- <router-link :to="{ name: 'Create', params: { id: user.id } }" class="btn btn-md btn-success">TAMBAH USER</router-link> -->
+    <CButton
+        @click="warningModal = true"
+        color="success"
+    >
+        Tambah User
+    </CButton>
+    <CModal
+      title="Tambah User"
+      color="success"
+      :show.sync="warningModal"
+      modal-footer
+    >
+      <form @submit.prevent="PostStore(user.id)">
+
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" class="form-control" v-model="userData2.username"
+                                       placeholder="Masukkan Username">
+                                <div v-if="validation.username">
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ validation.username[0] }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input class="form-control" type="password" v-model="userData2.password" rows="5"
+                                          placeholder="Masukkan Password">
+                                <div v-if="validation.password">
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ validation.password[0] }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Role ID</label>
+                            <select class="form-control" aria-label="Default select example" v-model="userData2.role_id">
+                              <option v-for="coba in role_id" v-bind:key="coba.id" v-bind:value="coba.id"> {{ coba.id }} - {{coba.role_name}} </option>
+                            </select>
+                                <div v-if="validation.role_id">
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ validation.role_id[0] }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Customer ID</label>
+                            <select class="form-control" aria-label="Default select example" v-model="userData2.customer_id">
+                              <option v-for="coba2 in cust_id" v-bind:key="coba2.id" v-bind:value="coba2.id"> {{ coba2.id }} - {{coba2.customer_name}} </option>
+                            </select>
+                                <div v-if="validation.customer_id">
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ validation.customer_id[0] }}
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <label>Active Flag</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" v-model="userData2.active_flag" checked value="Y">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                    Y
+                                    </label>
+                            </div>
+                            <div class="form-check">
+                                 <input class="form-check-input" type="radio" v-model="userData2.active_flag" value="N">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                    N
+                                    </label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control" type="text" v-model="userData2.email" rows="5"
+                                          placeholder="Masukkan Email">
+                                <div v-if="validation.email">
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ validation.email[0] }}
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-md btn-success">SIMPAN</button>
+                                <button type="reset" class="btn btn-md btn-danger">RESET</button>
+                            </div>
+                        </form>
+            <template #footer>
+                <span></span>
+            </template>
+    </CModal>
         <CDataTable
           :items="userData"
           :fields="fields"
@@ -104,25 +200,46 @@ const fields = [
         data() {
             return {
                 userData: [],
-                fields
+                fields,
+                userData2: {},
+                validation: [],
+                role_id:[],
+                cust_id:{},
+                warningModal: false,
             }
         },
         created() {
             let uri = `http://localhost:8000/api/v1/user`;
             axios.get(uri).then(response => {
                 this.userData = response.data.data;
-                console.log(this.userData);
+            });
+            let uri3 = `http://localhost:8000/api/v1/roles`;
+            axios.get(uri3).then((response) => {
+                this.role_id = response.data.data;
+            });
+            let uri2 = `http://localhost:8000/api/v1/customers`;
+            axios.get(uri2).then((response) => {
+                this.cust_id = response.data.data;
             });
         },
         methods: {
             UserDelete(id)
             {
-                alert(id);
                 axios.delete(`http://localhost:8000/api/v1/getid/${id}`)
                     .then(() => {
                         window.location.reload();
                     }).catch((error) => {
                     alert(error);
+                });
+            },
+            PostStore(id) {
+                let uri = `http://localhost:8000/api/v1/createuser/${id}`;
+                axios.post(uri, this.userData2)
+                    .then(() => {
+                        window.location.reload();
+                        this.warningModal= false;
+                    }).catch(error => {
+                    this.validation = error.response.data.data;
                 });
             }
         },

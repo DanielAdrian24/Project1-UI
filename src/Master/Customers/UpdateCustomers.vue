@@ -66,8 +66,8 @@
                                     </div>
                 </div>
                <CInput
-                 label="Email"
-                 placeholder="Masukan Email"
+                 label="Attribute 1"
+                 placeholder="Masukan Attribute1"
                  v-model="customersUpdate.attribute1"
                />
              </CCol>
@@ -80,8 +80,8 @@
                                     </div>
                 </div>
                <CInput
-                 label="Email"
-                 placeholder="Masukan Email"
+                 label="Attribute 2"
+                 placeholder="Masukan Attribute 2"
                  v-model="customersUpdate.attribute2"
                />
              </CCol>
@@ -94,8 +94,8 @@
                                     </div>
                 </div>
                <CInput
-                 label="Email"
-                 placeholder="Masukan Email"
+                 label="Attribute 3"
+                 placeholder="Masukan Attribute 3"
                  v-model="customersUpdate.attribute3"
                />
              </CCol>
@@ -108,8 +108,8 @@
                                     </div>
                 </div>
                <CInput
-                 label="Email"
-                 placeholder="Masukan Email"
+                 label="Attribute 4"
+                 placeholder="Masukan Attribute 4"
                  v-model="customersUpdate.attribute4"
                />
              </CCol>
@@ -122,8 +122,8 @@
                                     </div>
                 </div>
                <CInput
-                 label="Email"
-                 placeholder="Masukan Email"
+                 label="Attribute 5"
+                 placeholder="Masukan Attribute 5"
                  v-model="customersUpdate.attribute5"
                />
              </CCol>

@@ -38,6 +38,7 @@ const routes = [
     path: '/user',
     name: 'Listuser',
     component: () => import('../Master/User/Listuser.vue'),
+    home: false,
     meta: {
       auth: true
     }

@@ -12,7 +12,7 @@
                             <div class="form-group">
                                 <label>Menu Name</label>
                                 <input type="text" class="form-control" v-model="menuData.menu_name"
-                                       placeholder="Masukkan Customer Number">
+                                       placeholder="Masukkan Menu Name">
                                 <div v-if="validation.menu_name">
                                     <div class="alert alert-danger mt-1" role="alert">
                                         {{ validation.menu_name[0] }}
@@ -23,24 +23,14 @@
                             <div class="form-group">
                                 <label>Menu Desc</label>
                                 <input type="text" class="form-control" v-model="menuData.menu_desc"
-                                       placeholder="Masukkan Customer Number">
+                                       placeholder="Masukkan Menu Desc">
                                 <div v-if="validation.menu_desc">
                                     <div class="alert alert-danger mt-1" role="alert">
                                         {{ validation.menu_desc[0] }}
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- <div class="form-group">
-                                <label>Role ID</label>
-                                <input class="form-control" type="text" v-model="menuData.role_id" rows="5"
-                                          placeholder="Masukkan Customer Name">
-                                <div v-if="validation.role_id">
-                                    <div class="alert alert-danger mt-1" role="alert">
-                                        {{ validation.role_id[0] }}
-                                    </div>
-                                </div>
-                            </div> -->
+                            
                             <div class="form-group">
                                 <label>Customer ID</label>
                             <select class="form-control" aria-label="Default select example" v-model="menuData.role_id">
@@ -56,7 +46,7 @@
                             <div class="form-group">
                                 <label>Seq</label>
                                 <input class="form-control" type="text" v-model="menuData.seq" rows="5"
-                                          placeholder="Masukkan Description">
+                                          placeholder="Masukkan Seq">
                                 <div v-if="validation.seq">
                                     <div class="alert alert-danger mt-1" role="alert">
                                         {{ validation.seq[0] }}

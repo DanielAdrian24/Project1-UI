@@ -114,8 +114,8 @@ export default {
         .then(() => {
           this.$router.push({ name: "Listuser" });
         })
-        .catch(() => {
-          // this.errors = error.response.data.errors;
+        .catch((error) => {
+          this.errors = error.response.data.errors;
           // this.currentAlertCounter = 10;
         });
     },
