@@ -36,6 +36,7 @@ export default {
       },
        methods: {
           logout: function() {
+            console.log("MASOk")
               this.$store.dispatch('logout').then(() =>
               this.$router.push("/"))
           }

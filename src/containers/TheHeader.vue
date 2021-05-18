@@ -16,7 +16,10 @@
     <CHeaderNav class="d-md-down-none mr-auto">
     </CHeaderNav>
     <CHeaderNav class="mr-4">
-      <TheHeaderDropdownAccnt/>
+        <CNavItem><CButton
+          @click="logout">
+            Logout
+          </CButton></CNavItem>
     </CHeaderNav>
     <CSubheader class="px-3">
       <CBreadcrumbRouter class="border-0 mb-0"/>
@@ -25,13 +28,13 @@
 </template>
 
 <script>
-import TheHeaderDropdownAccnt from './TheHeaderDropdownAccnt'
+// import TheHeaderDropdownAccnt from './TheHeaderDropdownAccnt'
 import {mapGetters} from 'vuex'
 
 export default {
   name: 'TheHeader',
   components: {
-    TheHeaderDropdownAccnt
+    // TheHeaderDropdownAccnt
   },
   computed: {
       ...mapGetters({
@@ -41,9 +44,10 @@ export default {
     },
      methods: {
         logout: function() {
-            this.$store.dispatch('logout').then(() =>
-            this.$router.push("/login"))
-        }
+          console.log("MASOk")
+              this.$store.dispatch('logout').then(() =>
+              this.$router.push("/"))
+          }
     }
 }
 </script>

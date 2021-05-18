@@ -40,7 +40,7 @@
                             <div class="form-group">
                                 <label>Customer ID</label>
                             <select class="form-control" aria-label="Default select example" v-model="menuData2.role_id">
-                              <option v-for="coba2 in cust_id" v-bind:key="coba2.id" v-bind:value="coba2.id"> {{ coba2.id }} </option>
+                              <option v-for="coba2 in cust_id" v-bind:key="coba2.id" v-bind:value="coba2.id"> {{ coba2.id }} - {{coba2.customer_name}} </option>
                             </select>
                                 <div v-if="validation.customer_id">
                                     <div class="alert alert-danger mt-1" role="alert">
@@ -93,8 +93,8 @@
 
 
                             <div class="form-group">
-                                <CButton @click="warningModal = false" color="danger" >Batal</CButton>
-                                <CButton color="success" type="submit"> Tambah</CButton>
+                                <button type="submit" class="btn btn-md btn-success mr-1">SIMPAN</button>
+                                <button type="reset" class="btn btn-md btn-danger">RESET</button>
                             </div>
 
 

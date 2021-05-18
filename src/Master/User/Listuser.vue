@@ -38,7 +38,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Role ID</label>
+                                <label>Role</label>
                             <select class="form-control" aria-label="Default select example" v-model="userData2.role_id">
                               <option v-for="coba in role_id" v-bind:key="coba.id" v-bind:value="coba.id"> {{ coba.id }} - {{coba.role_name}} </option>
                             </select>
@@ -50,7 +50,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Customer ID</label>
+                                <label>Customer</label>
                             <select class="form-control" aria-label="Default select example" v-model="userData2.customer_id">
                               <option v-for="coba2 in cust_id" v-bind:key="coba2.id" v-bind:value="coba2.id"> {{ coba2.id }} - {{coba2.customer_name}} </option>
                             </select>
@@ -89,7 +89,7 @@
 
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-md btn-success">SIMPAN</button>
+                                <button type="submit" class="btn btn-md btn-success mr-1">SIMPAN</button>
                                 <button type="reset" class="btn btn-md btn-danger">RESET</button>
                             </div>
                         </form>

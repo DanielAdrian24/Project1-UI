@@ -38,7 +38,7 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit mr-1" class="btn btn-md btn-success">SIMPAN</button>
+                                <button type="submit" class="btn btn-md btn-success mr-1">SIMPAN</button>
                                 <button type="reset" class="btn btn-md btn-danger">RESET</button>
                             </div>
                         </form>

@@ -13,6 +13,7 @@
                  label="Customer ID"
                  placeholder="Masukan Customer ID"
                  v-model="customersUpdate.customer_number"
+                 type="number"
                />
              </CCol>
            </CRow>

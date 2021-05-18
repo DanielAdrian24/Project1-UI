@@ -132,7 +132,7 @@
 
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-md btn-success">SIMPAN</button>
+                                <button type="submit" class="btn btn-md btn-success mr-1">SIMPAN</button>
                                 <button type="reset" class="btn btn-md btn-danger">RESET</button>
                             </div>
                         </form>
@@ -188,16 +188,6 @@ const fields = [
   { key: 'customer_name' },
   { key: 'description'},
   { key: 'email' },
-  { key: 'attribute1'},
-  { key: 'attribute2' },
-  { key: 'attribute3'},
-  { key: 'attribute4'},
-  { key: 'attribute5'},
-  { key: 'active_flag'},
-  { key: 'created_by'},
-  { key: 'updated_by'},
-  { key: 'created_at'},
-  { key: 'updated_at'},
   { key: 'Action'}
 ]
 

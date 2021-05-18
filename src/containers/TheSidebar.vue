@@ -7,7 +7,7 @@
     v-if="!$route.meta.hideNavigation"
   >
     <CSidebarBrand class="d-md-down-none" to="/">
-      <CIcon 
+      <!-- <CIcon 
         class="c-sidebar-brand-full" 
         name="logo" 
         size="custom-size" 
@@ -20,7 +20,7 @@
         size="custom-size" 
         :height="35" 
         viewBox="0 0 110 134"
-      />
+      /> -->
     </CSidebarBrand>
 
     <CRenderFunction flat :content-to-render="$options.nav"/>
